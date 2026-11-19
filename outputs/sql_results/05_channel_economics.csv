@@ -1,0 +1,7 @@
+channel_group,bookings,booking_share_pct,avg_adr,cancel_rate_pct,realized_revenue,revenue_share_pct,revenue_kept_pct,avg_lead_time
+Online travel agency,56407,47.3,117.99,36.8,13707139.0,52.7,57.3,83.0
+Offline agency / tour operator,24181,20.3,88.34,34.3,5659292.0,21.8,69.5,135.0
+Direct,12580,10.6,117.71,15.4,4097279.0,15.8,80.5,50.0
+Groups,19790,16.6,80.51,61.1,1869130.0,7.2,40.0,187.0
+Corporate,5282,4.4,70.48,18.8,577892.0,2.2,74.6,22.0
+Other,963,0.8,88.02,14.6,75681.0,0.3,81.8,11.0

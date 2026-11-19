@@ -1,0 +1,25 @@
+hotel,arrival_month_num,arrival_month_name,bookings,cancel_rate_pct,realized_adr,revenue_rank
+City Hotel,1,Jan,3730,39.7,85.38,12
+City Hotel,2,Feb,4950,38.4,88.39,9
+City Hotel,3,Mar,6433,37.1,90.84,8
+City Hotel,4,Apr,7469,46.3,113.53,5
+City Hotel,5,May,8221,44.4,122.79,3
+City Hotel,6,Jun,7885,44.7,120.48,4
+City Hotel,7,Jul,8071,40.9,117.47,2
+City Hotel,8,Aug,8963,40.1,118.79,1
+City Hotel,9,Sep,7392,42.1,116.16,6
+City Hotel,10,Oct,7594,43.0,104.23,7
+City Hotel,11,Nov,4336,38.3,89.3,10
+City Hotel,12,Dec,4114,42.2,92.43,11
+Resort Hotel,1,Jan,2191,14.8,50.1,12
+Resort Hotel,2,Feb,3102,25.6,54.81,10
+Resort Hotel,3,Mar,3333,22.9,58.91,8
+Resort Hotel,4,Apr,3609,29.3,76.5,6
+Resort Hotel,5,May,3559,28.8,77.53,5
+Resort Hotel,6,Jun,3044,33.1,102.9,3
+Resort Hotel,7,Jul,4572,31.4,149.01,2
+Resort Hotel,8,Aug,4894,33.4,174.87,1
+Resort Hotel,9,Sep,3108,32.4,90.41,4
+Resort Hotel,10,Oct,3553,27.5,63.96,7
+Resort Hotel,11,Nov,2435,18.9,50.57,11
+Resort Hotel,12,Dec,2645,23.9,72.88,9

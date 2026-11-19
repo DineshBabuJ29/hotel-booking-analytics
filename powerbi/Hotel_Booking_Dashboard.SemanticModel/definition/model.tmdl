@@ -1,0 +1,25 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DataFolder", "fact_bookings", "dim_country", "model_deciles", "model_importance", "model_metrics", "forecast_weekly", "Date", "_Measures"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fact_bookings
+ref table dim_country
+ref table model_deciles
+ref table model_importance
+ref table model_metrics
+ref table forecast_weekly
+ref table Date
+ref table _Measures
+
+ref cultureInfo en-US
+

@@ -1,0 +1,13 @@
+hotel,channel_group,bookings,cancellations,cancel_rate_pct,lost_revenue,share_of_hotel_lost_pct
+City Hotel,Online travel agency,38678,14486,37.5,6222165.0,57.2
+City Hotel,Groups,13959,9620,68.9,2141203.0,19.7
+City Hotel,Offline agency / tour operator,16711,7165,42.9,1915761.0,17.6
+City Hotel,Direct,6071,1055,17.4,464757.0,4.3
+City Hotel,Corporate,2977,640,21.5,118393.0,1.1
+City Hotel,Other,762,108,14.2,16773.0,0.2
+Resort Hotel,Online travel agency,17729,6248,35.2,4004945.0,68.6
+Resort Hotel,Groups,5831,2474,42.4,659341.0,11.3
+Resort Hotel,Offline agency / tour operator,7470,1136,15.2,571198.0,9.8
+Resort Hotel,Direct,6509,878,13.5,528628.0,9.0
+Resort Hotel,Corporate,2305,351,15.2,77990.0,1.3
+Resort Hotel,Other,201,33,16.4,75.0,0.0

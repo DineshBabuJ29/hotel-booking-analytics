@@ -1,0 +1,12 @@
+deposit_type,market_segment,bookings,cancel_rate_pct
+No Deposit,Online TA,56333,36.7
+No Deposit,Offline TA/TO,19172,17.2
+No Deposit,Direct,12555,15.3
+No Deposit,Groups,10488,28.3
+No Deposit,Corporate,4944,13.7
+No Deposit,Complementary,728,12.2
+No Deposit,Aviation,235,22.1
+Non Refund,Groups,9172,99.3
+Non Refund,Offline TA/TO,5005,99.9
+Non Refund,Corporate,334,93.4
+Refundable,Groups,130,10.0

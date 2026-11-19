@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "a7b6df6ccb0d4d3bb0d3",
+  "position": {
+    "x": 668,
+    "y": 456,
+    "z": 10000,
+    "height": 252,
+    "width": 596,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "How to read this page",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Deciles rank No-Deposit bookings by predicted risk. The riskiest 10% cancel far more often than average; asking only them for a one-night deposit protects revenue while leaving 90% of guests untouched.",
+                    "textStyle": {
+                      "fontSize": "10pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Leakage excluded: reservation status, assigned room, booking changes, parking requests. Predicted rates run low in the test months (cancellations rose), so use the ranking, and recalibrate before using probabilities.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#475569"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

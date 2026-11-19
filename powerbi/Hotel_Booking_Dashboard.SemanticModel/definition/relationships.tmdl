@@ -1,0 +1,8 @@
+relationship 9d7980da-be2b-4727-ac9d-0a797098e610
+	fromColumn: fact_bookings.arrival_date
+	toColumn: Date.Date
+
+relationship 8cd13da2-7aa4-42bc-8a3f-e7a7dbba93d6
+	fromColumn: fact_bookings.country
+	toColumn: dim_country.country
+

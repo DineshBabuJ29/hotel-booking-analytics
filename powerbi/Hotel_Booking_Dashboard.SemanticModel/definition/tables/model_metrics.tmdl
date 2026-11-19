@@ -1,0 +1,56 @@
+table model_metrics
+	lineageTag: c48297de-b672-4d2e-baa2-3c169d605a1a
+
+	column model
+		dataType: string
+		lineageTag: 9866b3f9-7662-4a4b-aa49-f35ccc587a1a
+		summarizeBy: none
+		sourceColumn: model
+
+	column roc_auc
+		dataType: double
+		lineageTag: 21870d06-f454-4d0d-abf3-cc0596740c2a
+		summarizeBy: none
+		sourceColumn: roc_auc
+
+	column pr_auc
+		dataType: double
+		lineageTag: d5b86b06-dd32-48b3-aef5-e5a7fc7fac72
+		summarizeBy: none
+		sourceColumn: pr_auc
+
+	column brier
+		dataType: double
+		lineageTag: 2e8eb701-9bcc-47bf-a2b6-d47ebffc8cb8
+		summarizeBy: none
+		sourceColumn: brier
+
+	column accuracy_at_50pct
+		dataType: double
+		lineageTag: bb60322e-cc0f-45ad-b208-a44da9711f3c
+		summarizeBy: none
+		sourceColumn: accuracy_at_50pct
+
+	column roc_auc_no_deposit
+		dataType: double
+		lineageTag: 4a62b506-3a46-45a8-b0b1-3e64b8d60129
+		summarizeBy: none
+		sourceColumn: roc_auc_no_deposit
+
+	column test_cancel_rate
+		dataType: double
+		lineageTag: 24e6a9e0-568b-47ea-8eae-671c9b12c4bd
+		summarizeBy: none
+		sourceColumn: test_cancel_rate
+
+	partition model_metrics = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "model_metrics.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.TransformColumns(Promoted, {}, each if _ = "" then null else _),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"model", type text}, {"roc_auc", type number}, {"pr_auc", type number}, {"brier", type number}, {"accuracy_at_50pct", type number}, {"roc_auc_no_deposit", type number}, {"test_cancel_rate", type number}}, "en-US")
+				in
+				    Typed
+

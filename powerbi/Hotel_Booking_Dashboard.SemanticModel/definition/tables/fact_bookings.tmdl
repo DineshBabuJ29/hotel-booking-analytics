@@ -1,0 +1,362 @@
+table fact_bookings
+	lineageTag: d8f2a8ae-1715-4548-b2eb-4ed473086289
+
+	column booking_id
+		dataType: int64
+		lineageTag: eba44004-bd4b-4482-ab2d-3901fbc3dadf
+		summarizeBy: none
+		sourceColumn: booking_id
+
+	column hotel
+		dataType: string
+		lineageTag: bf05f05b-d2a9-42b6-8d94-84a0ee0bf2b9
+		summarizeBy: none
+		sourceColumn: hotel
+
+	column is_canceled
+		dataType: int64
+		lineageTag: bbe36189-a9a8-418d-871f-c2598174cdf5
+		summarizeBy: none
+		sourceColumn: is_canceled
+
+	column lead_time
+		dataType: int64
+		lineageTag: 2cc95832-2cd8-49bf-8ef8-b9f5337d80f2
+		summarizeBy: none
+		sourceColumn: lead_time
+
+	column arrival_date_year
+		dataType: int64
+		lineageTag: cd924c0d-61ae-4a5d-9c30-bb2b4490bc88
+		summarizeBy: none
+		sourceColumn: arrival_date_year
+
+	column arrival_date_month
+		dataType: string
+		lineageTag: 07f9be80-af92-40f0-bf8b-deb02fe8c844
+		summarizeBy: none
+		sourceColumn: arrival_date_month
+
+	column arrival_date_week_number
+		dataType: int64
+		lineageTag: e5fe26a5-ddb1-4bf6-a23b-83086e6494e8
+		summarizeBy: none
+		sourceColumn: arrival_date_week_number
+
+	column arrival_date_day_of_month
+		dataType: int64
+		lineageTag: 24b7ec08-55a9-4205-81c2-464ff345281b
+		summarizeBy: none
+		sourceColumn: arrival_date_day_of_month
+
+	column stays_in_weekend_nights
+		dataType: int64
+		lineageTag: 45c90a88-7565-4c6f-adc8-ada0b7336dd3
+		summarizeBy: none
+		sourceColumn: stays_in_weekend_nights
+
+	column stays_in_week_nights
+		dataType: int64
+		lineageTag: b951fcc7-bbd3-488a-9f0b-70584a051a66
+		summarizeBy: none
+		sourceColumn: stays_in_week_nights
+
+	column adults
+		dataType: int64
+		lineageTag: 12a59907-410b-44c3-8829-1651663e7263
+		summarizeBy: none
+		sourceColumn: adults
+
+	column children
+		dataType: int64
+		lineageTag: 8defb483-69db-444a-9941-0e8fdb3f1490
+		summarizeBy: none
+		sourceColumn: children
+
+	column babies
+		dataType: int64
+		lineageTag: 393c9b96-1a96-4de5-b8bf-af00f376a22b
+		summarizeBy: none
+		sourceColumn: babies
+
+	column meal
+		dataType: string
+		lineageTag: b3f22fc0-57b8-496c-b06c-9bbcbeb81f33
+		summarizeBy: none
+		sourceColumn: meal
+
+	column country
+		dataType: string
+		lineageTag: 81131c4d-1967-4cfc-9460-c0dba0adbc69
+		summarizeBy: none
+		sourceColumn: country
+
+	column market_segment
+		dataType: string
+		lineageTag: b187df38-44db-4916-bf4d-75f0b7cacabf
+		summarizeBy: none
+		sourceColumn: market_segment
+
+	column distribution_channel
+		dataType: string
+		lineageTag: fcc81086-4b82-444c-8569-e2b1bbf07b68
+		summarizeBy: none
+		sourceColumn: distribution_channel
+
+	column is_repeated_guest
+		dataType: int64
+		lineageTag: f4bb5c30-33a0-4af5-a34c-18c69304caea
+		summarizeBy: none
+		sourceColumn: is_repeated_guest
+
+	column previous_cancellations
+		dataType: int64
+		lineageTag: 8419a49d-5bf1-41ef-952f-e51a19a07633
+		summarizeBy: none
+		sourceColumn: previous_cancellations
+
+	column previous_bookings_not_canceled
+		dataType: int64
+		lineageTag: 0f387d6b-5ee1-4952-bfe2-e70a0f26fd7a
+		summarizeBy: none
+		sourceColumn: previous_bookings_not_canceled
+
+	column reserved_room_type
+		dataType: string
+		lineageTag: 62986a77-a4da-4195-a9d7-a02b4352dfbc
+		summarizeBy: none
+		sourceColumn: reserved_room_type
+
+	column assigned_room_type
+		dataType: string
+		lineageTag: 1e523a7a-cce6-462b-97a4-ca9d1bc88e76
+		summarizeBy: none
+		sourceColumn: assigned_room_type
+
+	column booking_changes
+		dataType: int64
+		lineageTag: ca3413ff-8511-4196-a0b9-9813aad2bbf0
+		summarizeBy: none
+		sourceColumn: booking_changes
+
+	column deposit_type
+		dataType: string
+		lineageTag: 8970a47e-5f56-4a0b-a412-a10b1d6682ba
+		summarizeBy: none
+		sourceColumn: deposit_type
+
+	column agent
+		dataType: int64
+		lineageTag: 49ba00e5-5841-4eb7-81ea-0217da434186
+		summarizeBy: none
+		sourceColumn: agent
+
+	column company
+		dataType: int64
+		lineageTag: b5ccb5e3-4483-4474-a127-53922507aa3e
+		summarizeBy: none
+		sourceColumn: company
+
+	column days_in_waiting_list
+		dataType: int64
+		lineageTag: 16e5fcfb-9db6-44d9-80da-faee54683d97
+		summarizeBy: none
+		sourceColumn: days_in_waiting_list
+
+	column customer_type
+		dataType: string
+		lineageTag: 29a7d192-1233-4840-8862-08e8d2c89e12
+		summarizeBy: none
+		sourceColumn: customer_type
+
+	column adr
+		dataType: double
+		lineageTag: fbf75d87-4977-45eb-8257-ad42068bbfbb
+		summarizeBy: none
+		sourceColumn: adr
+
+	column required_car_parking_spaces
+		dataType: int64
+		lineageTag: 4352bbeb-eaf8-492a-a619-ff751530e87e
+		summarizeBy: none
+		sourceColumn: required_car_parking_spaces
+
+	column total_of_special_requests
+		dataType: int64
+		lineageTag: a05b9992-541b-48cc-ac8a-3fa8dbe1fa52
+		summarizeBy: none
+		sourceColumn: total_of_special_requests
+
+	column reservation_status
+		dataType: string
+		lineageTag: c88aa3e5-1486-4509-a7ab-89878d9311f1
+		summarizeBy: none
+		sourceColumn: reservation_status
+
+	column reservation_status_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 662f16c9-bb49-437a-a376-3bf9cc7f52ae
+		summarizeBy: none
+		sourceColumn: reservation_status_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_exact_duplicate
+		dataType: int64
+		lineageTag: 8439f708-5156-4ee3-afd5-1e31fc228116
+		summarizeBy: none
+		sourceColumn: is_exact_duplicate
+
+	column arrival_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: cee3a530-f9b5-4ac3-82fc-7b2eaf2d49ac
+		summarizeBy: none
+		sourceColumn: arrival_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column booking_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 637fcf72-1b83-4519-aa5d-06d994ff7da7
+		summarizeBy: none
+		sourceColumn: booking_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column arrival_month
+		dataType: string
+		lineageTag: cf1abf1c-568d-4623-931d-dc152ca462b2
+		summarizeBy: none
+		sourceColumn: arrival_month
+
+	column arrival_month_num
+		dataType: int64
+		lineageTag: d07d7877-b6c9-4112-9289-22547e171346
+		summarizeBy: none
+		sourceColumn: arrival_month_num
+
+	column arrival_month_name
+		dataType: string
+		lineageTag: 5d463b88-967a-4f27-8bbd-1a10001d4424
+		summarizeBy: none
+		sourceColumn: arrival_month_name
+
+	column arrival_week_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 65a0576c-8fd5-488b-a8e8-f05878829948
+		summarizeBy: none
+		sourceColumn: arrival_week_start
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column arrival_weekday
+		dataType: string
+		lineageTag: 3dbd4f50-39fa-4ab7-9482-2d7275582d5e
+		summarizeBy: none
+		sourceColumn: arrival_weekday
+
+	column season
+		dataType: string
+		lineageTag: bb97b406-0cf6-4870-970f-00ef9504f747
+		summarizeBy: none
+		sourceColumn: season
+
+	column room_nights
+		dataType: int64
+		lineageTag: cdc5da97-aeda-45ab-8410-8af1c6ceb5da
+		summarizeBy: none
+		sourceColumn: room_nights
+
+	column is_day_use
+		dataType: int64
+		lineageTag: 65dfd8da-f82f-4699-96f9-02e27e79285d
+		summarizeBy: none
+		sourceColumn: is_day_use
+
+	column guests
+		dataType: int64
+		lineageTag: 965cb89e-0bc0-4bc3-b264-3092f11dee78
+		summarizeBy: none
+		sourceColumn: guests
+
+	column is_family
+		dataType: int64
+		lineageTag: 9d4f39cf-241d-4f29-b5f0-fb041533e2f7
+		summarizeBy: none
+		sourceColumn: is_family
+
+	column booking_value
+		dataType: double
+		lineageTag: c850aae6-b4e5-4590-a9c3-cb8464cbbd06
+		summarizeBy: none
+		sourceColumn: booking_value
+
+	column realized_revenue
+		dataType: double
+		lineageTag: c2cc47b2-e9cc-453e-aaa1-2af76c6b9b31
+		summarizeBy: none
+		sourceColumn: realized_revenue
+
+	column lost_revenue
+		dataType: double
+		lineageTag: 6021635f-707a-4936-a187-7aa4137925f7
+		summarizeBy: none
+		sourceColumn: lost_revenue
+
+	column is_paid_stay
+		dataType: int64
+		lineageTag: 886cab79-0958-4f7d-acaa-4c2131d090bb
+		summarizeBy: none
+		sourceColumn: is_paid_stay
+
+	column is_online_ta
+		dataType: int64
+		lineageTag: 9f53f88c-1870-4d75-b87f-e8c56e7f20b7
+		summarizeBy: none
+		sourceColumn: is_online_ta
+
+	column channel_group
+		dataType: string
+		lineageTag: 8923b1f4-ab04-42ad-8e1d-29b20dd1b4a1
+		summarizeBy: none
+		sourceColumn: channel_group
+
+	column lead_time_bucket
+		dataType: string
+		lineageTag: 2c16a050-6acf-492f-ae59-256d2e3a0dc9
+		summarizeBy: none
+		sourceColumn: lead_time_bucket
+
+	column is_room_upgrade_or_change
+		dataType: int64
+		lineageTag: b3ce9777-bbb8-452f-ad11-53e4b935688c
+		summarizeBy: none
+		sourceColumn: is_room_upgrade_or_change
+
+	column has_special_requests
+		dataType: int64
+		lineageTag: 08363109-9640-409f-a7a2-009c1512e3e1
+		summarizeBy: none
+		sourceColumn: has_special_requests
+
+	column is_no_show
+		dataType: int64
+		lineageTag: 6835577a-2e86-4adf-a9c6-bb064282e1d9
+		summarizeBy: none
+		sourceColumn: is_no_show
+
+	partition fact_bookings = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fact_bookings.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.TransformColumns(Promoted, {}, each if _ = "" then null else _),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"booking_id", Int64.Type}, {"hotel", type text}, {"is_canceled", Int64.Type}, {"lead_time", Int64.Type}, {"arrival_date_year", Int64.Type}, {"arrival_date_month", type text}, {"arrival_date_week_number", Int64.Type}, {"arrival_date_day_of_month", Int64.Type}, {"stays_in_weekend_nights", Int64.Type}, {"stays_in_week_nights", Int64.Type}, {"adults", Int64.Type}, {"children", Int64.Type}, {"babies", Int64.Type}, {"meal", type text}, {"country", type text}, {"market_segment", type text}, {"distribution_channel", type text}, {"is_repeated_guest", Int64.Type}, {"previous_cancellations", Int64.Type}, {"previous_bookings_not_canceled", Int64.Type}, {"reserved_room_type", type text}, {"assigned_room_type", type text}, {"booking_changes", Int64.Type}, {"deposit_type", type text}, {"agent", Int64.Type}, {"company", Int64.Type}, {"days_in_waiting_list", Int64.Type}, {"customer_type", type text}, {"adr", type number}, {"required_car_parking_spaces", Int64.Type}, {"total_of_special_requests", Int64.Type}, {"reservation_status", type text}, {"reservation_status_date", type date}, {"is_exact_duplicate", Int64.Type}, {"arrival_date", type date}, {"booking_date", type date}, {"arrival_month", type text}, {"arrival_month_num", Int64.Type}, {"arrival_month_name", type text}, {"arrival_week_start", type date}, {"arrival_weekday", type text}, {"season", type text}, {"room_nights", Int64.Type}, {"is_day_use", Int64.Type}, {"guests", Int64.Type}, {"is_family", Int64.Type}, {"booking_value", type number}, {"realized_revenue", type number}, {"lost_revenue", type number}, {"is_paid_stay", Int64.Type}, {"is_online_ta", Int64.Type}, {"channel_group", type text}, {"lead_time_bucket", type text}, {"is_room_upgrade_or_change", Int64.Type}, {"has_special_requests", Int64.Type}, {"is_no_show", Int64.Type}}, "en-US")
+				in
+				    Typed
+

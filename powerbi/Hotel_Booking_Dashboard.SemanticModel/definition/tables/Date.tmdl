@@ -1,0 +1,61 @@
+table Date
+	lineageTag: 8088eb03-52e8-4227-88f2-d38df66d8074
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: c352e6e8-77ff-420f-b4c6-0658d2ec1d7a
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		lineageTag: 39a9b969-42db-489c-87a2-03efd614398e
+		summarizeBy: none
+		sourceColumn: Year
+
+	column 'Month Num'
+		dataType: int64
+		lineageTag: 137f9890-d94c-49f6-81d8-ed8bbfe24392
+		summarizeBy: none
+		sourceColumn: Month Num
+
+	column Month
+		dataType: string
+		lineageTag: cf5d18d4-a351-4603-9483-76da2efa5289
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: 'Month Num'
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: 988dc4a3-308c-4774-abbd-a407826f1462
+		summarizeBy: none
+		sourceColumn: Year Month
+
+	column Quarter
+		dataType: string
+		lineageTag: e9a00e64-0188-44f1-bf84-c5ac4f38a0ef
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	partition Date = m
+		mode: import
+		source =
+				let
+				    StartDate = #date(2015, 7, 1), EndDate = #date(2017, 8, 31),
+				    Dates = List.Dates(StartDate, Duration.Days(EndDate - StartDate) + 1, #duration(1, 0, 0, 0)),
+				    T0 = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+				    T1 = Table.TransformColumnTypes(T0, {{"Date", type date}}),
+				    T2 = Table.AddColumn(T1, "Year", each Date.Year([Date]), Int64.Type),
+				    T3 = Table.AddColumn(T2, "Month Num", each Date.Month([Date]), Int64.Type),
+				    T4 = Table.AddColumn(T3, "Month", each Date.ToText([Date], "MMM", "en-US"), type text),
+				    T5 = Table.AddColumn(T4, "Year Month", each Date.ToText([Date], "yyyy-MM", "en-US"), type text),
+				    T6 = Table.AddColumn(T5, "Quarter", each Text.From(Date.Year([Date])) & "-Q" & Text.From(Date.QuarterOfYear([Date])), type text)
+				in
+				    T6
+

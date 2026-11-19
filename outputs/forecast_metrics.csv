@@ -1,0 +1,4 @@
+method,mae,mape_pct
+Seasonal naive (same week last year),70.38,9.16
+Seasonal naive x YoY growth (1.02),74.8,9.83
+Fourier regression (trend + seasonality),81.54,10.99

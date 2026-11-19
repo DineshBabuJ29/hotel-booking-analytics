@@ -1,0 +1,3 @@
+hotel,bookings,cancel_rate_pct,realized_revenue,lost_revenue,lost_share_pct,stayed_room_nights,realized_adr,avg_stay_nights,avg_lead_time_days
+City Hotel,79158,41.8,14385342.0,10879052.0,43.1,134468.0,108.04,2.92,110.0
+Resort Hotel,40045,27.8,11601071.0,5842177.0,33.5,119809.0,97.6,4.14,93.0

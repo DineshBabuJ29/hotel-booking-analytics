@@ -1,0 +1,34 @@
+{
+  "name": "Coastal",
+  "dataColors": ["#0F766E", "#F59E0B", "#7C3AED", "#E11D48", "#0EA5E9", "#65A30D", "#78716C", "#B45309"],
+  "good": "#0F766E",
+  "neutral": "#F59E0B",
+  "bad": "#E11D48",
+  "maximum": "#115E59",
+  "center": "#99F6E4",
+  "minimum": "#F0FDFA",
+  "background": "#FFFFFF",
+  "foreground": "#1C1917",
+  "tableAccent": "#0F766E",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#134E4A" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 11, "color": "#134E4A" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#44403C" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 26, "color": "#134E4A" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#E7E5E4" } }, "radius": 8 }],
+        "dropShadow": [{ "show": false }],
+        "visualHeader": [{ "show": true }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#FAF7F2" } }, "transparency": 0 }]
+      }
+    }
+  }
+}

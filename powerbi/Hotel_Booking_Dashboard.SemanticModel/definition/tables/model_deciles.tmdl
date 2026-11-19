@@ -1,0 +1,86 @@
+table model_deciles
+	lineageTag: 821397ab-9c2f-4783-8b86-f2aaf199ce00
+
+	column risk_decile
+		dataType: int64
+		lineageTag: 5b1b26d5-03be-426b-a4da-2c745a497575
+		summarizeBy: none
+		sourceColumn: risk_decile
+
+	column bookings
+		dataType: int64
+		lineageTag: 7ce72fa4-9729-4378-a7c8-d56091add8de
+		summarizeBy: none
+		sourceColumn: bookings
+
+	column avg_predicted
+		dataType: double
+		lineageTag: f7ac3d5a-8fb3-4cbb-a248-8089bf279d02
+		summarizeBy: none
+		sourceColumn: avg_predicted
+
+	column actual_cancel_rate
+		dataType: double
+		lineageTag: 351dbdd4-8e7d-4675-a1ef-cb6452138fcf
+		summarizeBy: none
+		sourceColumn: actual_cancel_rate
+
+	column cancellations
+		dataType: int64
+		lineageTag: f654f14b-552e-4393-a038-284dc834f3c7
+		summarizeBy: none
+		sourceColumn: cancellations
+
+	column lost_revenue
+		dataType: double
+		lineageTag: 2a1b94ff-e3d2-48e3-b3ca-b223794eb9cd
+		summarizeBy: none
+		sourceColumn: lost_revenue
+
+	column booking_value
+		dataType: double
+		lineageTag: c5c16be5-ff22-46b1-9400-c88060c6296f
+		summarizeBy: none
+		sourceColumn: booking_value
+
+	column avg_adr
+		dataType: double
+		lineageTag: 9307de4e-599a-49a0-beae-eee799674969
+		summarizeBy: none
+		sourceColumn: avg_adr
+
+	column realized_revenue
+		dataType: double
+		lineageTag: 1ad735cd-6ac5-43ed-a3cf-0221df7e93a8
+		summarizeBy: none
+		sourceColumn: realized_revenue
+
+	column share_of_cancellations
+		dataType: double
+		lineageTag: 9b7e8b68-d695-4a2d-8c59-4934e74ba9b6
+		summarizeBy: none
+		sourceColumn: share_of_cancellations
+
+	column cum_share_of_cancellations
+		dataType: double
+		lineageTag: 1d10b7a2-d281-4ae3-91ed-732d06b3f836
+		summarizeBy: none
+		sourceColumn: cum_share_of_cancellations
+
+	column first_night_value_of_cancellations
+		dataType: double
+		lineageTag: 990dbcad-e583-4614-a924-8206a5a2c3a7
+		summarizeBy: none
+		sourceColumn: first_night_value_of_cancellations
+
+	partition model_deciles = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "model_deciles.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.TransformColumns(Promoted, {}, each if _ = "" then null else _),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"risk_decile", Int64.Type}, {"bookings", Int64.Type}, {"avg_predicted", type number}, {"actual_cancel_rate", type number}, {"cancellations", Int64.Type}, {"lost_revenue", type number}, {"booking_value", type number}, {"avg_adr", type number}, {"realized_revenue", type number}, {"share_of_cancellations", type number}, {"cum_share_of_cancellations", type number}, {"first_night_value_of_cancellations", type number}}, "en-US")
+				in
+				    Typed
+

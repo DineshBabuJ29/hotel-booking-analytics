@@ -1,0 +1,186 @@
+table _Measures
+	lineageTag: 5110c08b-95e0-47fe-bc38-433181e2e31f
+
+	measure Bookings = COUNTROWS ( fact_bookings )
+		formatString: #,0
+		displayFolder: Bookings & Revenue
+		lineageTag: e42272d9-b44e-4ae6-8b1b-0fc217fe8c9c
+
+	measure Cancellations = SUM ( fact_bookings[is_canceled] )
+		formatString: #,0
+		displayFolder: Bookings & Revenue
+		lineageTag: e0eb3a8c-a14e-42f6-857a-98990c2f45b3
+
+	measure 'Cancel Rate %' = DIVIDE ( [Cancellations], [Bookings] )
+		formatString: 0.0%
+		displayFolder: Bookings & Revenue
+		lineageTag: 1f279763-d249-4481-a04b-2d282c36123a
+
+	measure 'Booked Value' = SUM ( fact_bookings[booking_value] )
+		formatString: "€"#,0
+		displayFolder: Bookings & Revenue
+		lineageTag: 554710f6-c9fb-4faf-a2d3-678f248bfcde
+
+	measure 'Realized Revenue' = SUM ( fact_bookings[realized_revenue] )
+		formatString: "€"#,0
+		displayFolder: Bookings & Revenue
+		lineageTag: 23d8558f-fdee-431a-871a-b1b22394fc38
+
+	measure 'Lost Revenue' = SUM ( fact_bookings[lost_revenue] )
+		formatString: "€"#,0
+		displayFolder: Bookings & Revenue
+		lineageTag: eb29a8e4-d1a5-45f7-b32a-5e1a6ee324e4
+
+	measure 'Revenue Kept %' = DIVIDE ( [Realized Revenue], [Booked Value] )
+		formatString: 0.0%
+		displayFolder: Bookings & Revenue
+		lineageTag: bdb8c008-4009-4a04-b5db-0de2747aacd1
+
+	measure 'Stayed Room Nights' = CALCULATE ( SUM ( fact_bookings[room_nights] ), fact_bookings[is_canceled] = 0 )
+		formatString: #,0
+		displayFolder: Bookings & Revenue
+		lineageTag: 6bf463ae-a53a-4374-9d2f-e2676fc51e0f
+
+	measure 'Realized ADR' =
+			DIVIDE (
+			    CALCULATE ( SUM ( fact_bookings[booking_value] ), fact_bookings[is_canceled] = 0, fact_bookings[is_paid_stay] = 1 ),
+			    CALCULATE ( SUM ( fact_bookings[room_nights] ), fact_bookings[is_canceled] = 0, fact_bookings[is_paid_stay] = 1 )
+			)
+		formatString: "€"#,0.00
+		displayFolder: Bookings & Revenue
+		lineageTag: e434e279-637f-4bb1-8cef-e6df7aaf1c41
+
+	measure 'Avg Stay Nights' = CALCULATE ( AVERAGE ( fact_bookings[room_nights] ), fact_bookings[is_canceled] = 0 )
+		formatString: 0.00
+		displayFolder: Bookings & Revenue
+		lineageTag: 4436aa11-3c72-4562-92a7-8e95d0e786ef
+
+	measure 'Avg Lead Time Days' = AVERAGE ( fact_bookings[lead_time] )
+		formatString: 0
+		displayFolder: Bookings & Revenue
+		lineageTag: 3b81be27-851a-4e87-bd79-ea501c89c432
+
+	measure 'Online Share %' = DIVIDE ( CALCULATE ( [Bookings], fact_bookings[is_online_ta] = 1 ), [Bookings] )
+		formatString: 0.0%
+		displayFolder: Bookings & Revenue
+		lineageTag: 1c6d5a18-33ae-48a1-97ac-6dd423b318c7
+
+	measure 'Repeat Guest %' = AVERAGE ( fact_bookings[is_repeated_guest] )
+		formatString: 0.0%
+		displayFolder: Bookings & Revenue
+		lineageTag: 9ea349b0-54c1-4823-9107-90e31a6e814d
+
+	measure 'Realized Revenue PY' = CALCULATE ( [Realized Revenue], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: "€"#,0
+		displayFolder: Bookings & Revenue
+		lineageTag: cbd7fb95-d3ee-446e-9705-80846774e6a1
+
+	measure 'Realized Revenue YoY %' = DIVIDE ( [Realized Revenue] - [Realized Revenue PY], [Realized Revenue PY] )
+		formatString: 0.0%
+		displayFolder: Bookings & Revenue
+		lineageTag: 3df58212-75fc-4567-88ee-34ae4d135bfd
+
+	measure 'Model AUC (Gradient Boosting)' = CALCULATE ( MAX ( model_metrics[roc_auc] ), model_metrics[model] = "Gradient boosting" )
+		formatString: 0.000
+		displayFolder: Model
+		lineageTag: 84aeadd1-bc1c-4951-816c-ba60051bcb8d
+
+	measure 'Model AUC (Logistic)' = CALCULATE ( MAX ( model_metrics[roc_auc] ), model_metrics[model] = "Logistic regression" )
+		formatString: 0.000
+		displayFolder: Model
+		lineageTag: 16eba021-b68f-406b-803a-99bf8a5da3ec
+
+	measure 'Model AUC No-Deposit' = CALCULATE ( MAX ( model_metrics[roc_auc_no_deposit] ), model_metrics[model] = "Gradient boosting" )
+		formatString: 0.000
+		displayFolder: Model
+		lineageTag: db645437-34d1-4fbf-a52e-b465221eedb3
+
+	measure 'Decile Actual Cancel %' = DIVIDE ( SUM ( model_deciles[cancellations] ), SUM ( model_deciles[bookings] ) )
+		formatString: 0.0%
+		displayFolder: Model
+		lineageTag: 85d9603a-6007-4878-b181-1e9d14400f7d
+
+	measure 'Decile Predicted Cancel %' = DIVIDE ( SUMX ( model_deciles, model_deciles[avg_predicted] * model_deciles[bookings] ), SUM ( model_deciles[bookings] ) )
+		formatString: 0.0%
+		displayFolder: Model
+		lineageTag: 32071c68-9ad2-4d73-ba6e-fc1d20749b53
+
+	measure 'Decile Share of Cancellations' = DIVIDE ( SUM ( model_deciles[cancellations] ), CALCULATE ( SUM ( model_deciles[cancellations] ), ALL ( model_deciles ) ) )
+		formatString: 0.0%
+		displayFolder: Model
+		lineageTag: b74dc840-1398-423f-a0aa-2f1edc7ebc42
+
+	measure 'Top Decile Cancel %' = CALCULATE ( [Decile Actual Cancel %], model_deciles[risk_decile] = 1 )
+		formatString: 0.0%
+		displayFolder: Model
+		lineageTag: 8df75ef9-9ea1-489f-a20e-967f85736dd4
+
+	measure 'Top Decile Share of Cancellations' = CALCULATE ( [Decile Share of Cancellations], model_deciles[risk_decile] = 1 )
+		formatString: 0.0%
+		displayFolder: Model
+		lineageTag: 8a714c66-089a-4b00-966a-d4b2143d7043
+
+	measure 'Deposit Value Protected (1 night)' = SUM ( model_deciles[first_night_value_of_cancellations] )
+		formatString: "€"#,0
+		displayFolder: Model
+		lineageTag: 71dd97b2-a434-4cd3-b5fc-32619d6aa859
+
+	measure 'Decile Lost Revenue' = SUM ( model_deciles[lost_revenue] )
+		formatString: "€"#,0
+		displayFolder: Model
+		lineageTag: 299c5df7-4c04-4d9f-84f5-c06a49605789
+
+	measure 'Feature Importance (AUC drop)' = SUM ( model_importance[auc_drop] )
+		formatString: 0.000
+		displayFolder: Model
+		lineageTag: ba40a0f6-3b49-4f96-91be-0a204d85e6f3
+
+	measure 'Actual Stays' = SUM ( forecast_weekly[actual] )
+		formatString: #,0
+		displayFolder: Forecast
+		lineageTag: 78562d24-65ff-4439-b611-bff53e61c505
+
+	measure 'Forecast Seasonal Naive' = SUM ( forecast_weekly[forecast_seasonal_naive] )
+		formatString: #,0
+		displayFolder: Forecast
+		lineageTag: a00e5b97-78c1-4d9a-8b5c-9bde5319e0cb
+
+	measure 'Forecast Fourier' = SUM ( forecast_weekly[forecast_fourier] )
+		formatString: #,0
+		displayFolder: Forecast
+		lineageTag: 5dc5698d-b40d-4020-b2ef-baad9993f30e
+
+	measure 'MAPE Seasonal Naive' =
+			AVERAGEX ( FILTER ( forecast_weekly, forecast_weekly[is_test] = 1 ),
+			    ABS ( forecast_weekly[actual] - forecast_weekly[forecast_seasonal_naive] ) / forecast_weekly[actual] )
+		formatString: 0.0%
+		displayFolder: Forecast
+		lineageTag: 518afbfb-b7ce-4cdc-8ee7-84b7664ffb73
+
+	measure 'MAPE Fourier' =
+			AVERAGEX ( FILTER ( forecast_weekly, forecast_weekly[is_test] = 1 ),
+			    ABS ( forecast_weekly[actual] - forecast_weekly[forecast_fourier] ) / forecast_weekly[actual] )
+		formatString: 0.0%
+		displayFolder: Forecast
+		lineageTag: 91f25b9f-2d68-4042-b8e1-901071b56da3
+
+	measure 'Avg Weekly Stays (test)' = CALCULATE ( AVERAGE ( forecast_weekly[actual] ), forecast_weekly[is_test] = 1 )
+		formatString: #,0
+		displayFolder: Forecast
+		lineageTag: 3003c071-7e57-4e87-9605-85245fbe8172
+
+	column Placeholder
+		dataType: string
+		isHidden
+		lineageTag: 10efb52c-d51d-4c46-a379-982262a7a309
+		summarizeBy: none
+		sourceColumn: Placeholder
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [Placeholder = text], {})
+				in
+				    Source
+

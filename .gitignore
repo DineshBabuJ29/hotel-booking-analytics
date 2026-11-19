@@ -1,0 +1,9 @@
+# Raw data: download hotels.csv yourself (see README)
+data/raw/*.csv
+# Generated
+data/processed/*.csv
+data/hotels.db
+outputs/run.log
+__pycache__/
+.venv/
+venv/

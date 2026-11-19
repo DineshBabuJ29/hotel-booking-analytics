@@ -1,0 +1,12 @@
+trait,value_,bookings,cancel_rate_pct
+Special requests,0,70199,47.8
+Special requests,1,33180,22.0
+Special requests,2+,15824,21.2
+Previous cancellations,0,112724,33.9
+Previous cancellations,1+,6479,91.7
+Repeat guest,No,115449,37.8
+Repeat guest,Yes,3754,14.7
+Parking requested,No,111795,39.5
+Parking requested,Yes,7408,0.0
+Booked through agent,No,16277,24.7
+Booked through agent,Yes,102926,39.0

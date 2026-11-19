@@ -1,0 +1,5 @@
+hotel,year_,bookings,realized_revenue,cancel_rate_pct,revenue_yoy_pct
+City Hotel,2016,24410,4458383.0,38.7,
+City Hotel,2017,27446,5635425.0,42.6,26.4
+Resort Hotel,2016,12345,3502653.0,26.8,
+Resort Hotel,2017,13173,4173305.0,30.8,19.1
